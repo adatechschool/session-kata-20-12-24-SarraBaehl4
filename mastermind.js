@@ -1,21 +1,21 @@
 //** Étape 1:
 
-let colorsToGuess = ['red','black'];
+let colorsToGuess = ["red", "black"];
 const maxTry = 12;
 let nbOfTry = 0;
-const acceptedColors = ['red','pink','green','black'];
+const acceptedColors = ["red", "pink", "green", "black"];
 
 //fonction pour s'assurer que les 4 couleurs sont respectées ou non:
 function handleacceptedColors(color1, color2) {
-  return (acceptedColors.includes(color1) && acceptedColors.includes(color2));
+  return acceptedColors.includes(color1) && acceptedColors.includes(color2);
 }
 // console.log(handleacceptedColors('blue','red'));// false
 // console.log(handleacceptedColors('pink','black'))// true
 
 //Une fonction qui retourne true ou false si la bonne combinaison est trouvée ou non:
 function codeBreaker(color1, color2) {
-    let color1IsValide = false
-    let color2IsValide = false
+  let color1IsValide = false;
+  let color2IsValide = false;
   for (let i = 0; i < colorsToGuess.length; i++) {
     if (color1 === colorsToGuess[i]) {
       color1IsValide = true;
@@ -31,30 +31,40 @@ function codeBreaker(color1, color2) {
 // console.log(codeBreaker('red','black')); //true
 
 //Une fonction qui gère la partie (continuer tant que/fin si gagné)
-function startGame(color1,color2){
-    if (nbOfTry < maxTry){
-    if(handleacceptedColors(color1,color2) ===false){
-        return 'veuillez choisir une des 4 couleurs proposées'
-    }else if (codeBreaker(color1,color2)===false){
-        nbOfTry++;
-        return `veuillez réessayer, tentative ${nbOfTry}`; 
+function startGame(color1, color2) {
+  if (nbOfTry < maxTry) {
+    if (handleacceptedColors(color1, color2) === false) {
+      return "veuillez choisir une des 4 couleurs proposées";
+    } else if (codeBreaker(color1, color2) === false) {
+      nbOfTry++;
+      return `veuillez réessayer, tentative ${nbOfTry}`;
     }
-    return 'Bravo vous avez réussi à devener les 2 couleurs'
+    return "Bravo vous avez réussi à devener les 2 couleurs";
+  }
+  return "Vous avez atteint le max des tentatives, les coleurs à deviner sont (red,balck)";
 }
-return 'Vous avez atteint le max des tentatives, les coleurs à deviner sont (red,balck)'
+//console.log(startGame('red','pink')); // faire 12 console.log pourque le nbOfTry s'incrémente
+
+//** Étape 2:
+let fourColorsToGuess = ["red", "pink", "green", "black"];
+let acceptedEightColors = [
+  "yellow",
+  "purple",
+  "orange",
+  "blue",
+  "red",
+  "pink",
+  "green",
+  "black",
+];
+
+function handle8Colors(color1, color2, color3, color4) {
+  return (
+    acceptedEightColors.includes(color1) &&
+    acceptedEightColors.includes(color2) &&
+    acceptedEightColors.includes(color3) &&
+    acceptedEightColors.includes(color4)
+  );
 }
-console.log(startGame('red','pink'));
-console.log(startGame('red','green'));
-console.log(startGame('black','pink'));
-console.log(startGame('red','pink'));
-console.log(startGame('red','green'));
-console.log(startGame('black','pink'));
-console.log(startGame('red','pink'));
-console.log(startGame('red','green'));
-console.log(startGame('black','pink'));
-console.log(startGame('red','pink'));
-console.log(startGame('red','green'));
-console.log(startGame('black','pink'));
-console.log(startGame('black','pink'));
-
-
+console.log(handle8Colors('red','black','white','grey'))//false
+console.log(handle8Colors('red','black','purple','yellow'))// true
