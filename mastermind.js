@@ -1,22 +1,31 @@
 //** Étape 1:
 
-let colorsToGuess = ["red", "black"];
+let colorsToGuess = ['red','black'];
 const maxTry = 12;
 let nbOfTry = 0;
-const acceptedColors = ["red", "pink", "green", "black"];
+const acceptedColors = ['red','pink','green','black'];
 
 //fonction pour s'assurer que les 4 couleurs sont respectées ou non:
-function handleInput(color1, color2) {
+function handleacceptedColors(color1, color2) {
+  return (acceptedColors.includes(color1) && acceptedColors.includes(color2));
+}
+console.log(handleacceptedColors('blue','red'));// false
+console.log(handleacceptedColors('pink','black'))// true
+
+//Une fonction qui retourne true ou false si la bonne combinaison est trouvée ou non:
+function codeBreaker(color1, color2) {
     let color1IsValide = false
     let color2IsValide = false
-  for (let i = 0; i < acceptedColors.length; i++) {
-    if (color1 === acceptedColors[i]) {
+  for (let i = 0; i < colorsToGuess.length; i++) {
+    if (color1 === colorsToGuess[i]) {
       color1IsValide = true;
     }
-    if (color2 === acceptedColors[i]) {
+    if (color2 === colorsToGuess[i]) {
       color2IsValide = true;
     }
   }
   return color1IsValide && color2IsValide;
 }
-console.log(handleInput("red", "pink"));
+console.log(codeBreaker("red", "pink")); // false
+console.log(codeBreaker("black", "blue")); // false
+console.log(codeBreaker('red','black')); //true
