@@ -9,8 +9,8 @@ const acceptedColors = ['red','pink','green','black'];
 function handleacceptedColors(color1, color2) {
   return (acceptedColors.includes(color1) && acceptedColors.includes(color2));
 }
-console.log(handleacceptedColors('blue','red'));// false
-console.log(handleacceptedColors('pink','black'))// true
+// console.log(handleacceptedColors('blue','red'));// false
+// console.log(handleacceptedColors('pink','black'))// true
 
 //Une fonction qui retourne true ou false si la bonne combinaison est trouvée ou non:
 function codeBreaker(color1, color2) {
@@ -26,6 +26,35 @@ function codeBreaker(color1, color2) {
   }
   return color1IsValide && color2IsValide;
 }
-console.log(codeBreaker("red", "pink")); // false
-console.log(codeBreaker("black", "blue")); // false
-console.log(codeBreaker('red','black')); //true
+// console.log(codeBreaker("red", "pink")); // false
+// console.log(codeBreaker("black", "blue")); // false
+// console.log(codeBreaker('red','black')); //true
+
+//Une fonction qui gère la partie (continuer tant que/fin si gagné)
+function startGame(color1,color2){
+    if (nbOfTry < maxTry){
+    if(handleacceptedColors(color1,color2) ===false){
+        return 'veuillez choisir une des 4 couleurs proposées'
+    }else if (codeBreaker(color1,color2)===false){
+        nbOfTry++;
+        return `veuillez réessayer, tentative ${nbOfTry}`; 
+    }
+    return 'Bravo vous avez réussi à devener les 2 couleurs'
+}
+return 'Vous avez atteint le max des tentatives, les coleurs à deviner sont (red,balck)'
+}
+console.log(startGame('red','pink'));
+console.log(startGame('red','green'));
+console.log(startGame('black','pink'));
+console.log(startGame('red','pink'));
+console.log(startGame('red','green'));
+console.log(startGame('black','pink'));
+console.log(startGame('red','pink'));
+console.log(startGame('red','green'));
+console.log(startGame('black','pink'));
+console.log(startGame('red','pink'));
+console.log(startGame('red','green'));
+console.log(startGame('black','pink'));
+console.log(startGame('black','pink'));
+
+
