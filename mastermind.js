@@ -63,3 +63,12 @@ function handle8Colors(color1, color2, color3, color4) {
 }
 //console.log(handle8Colors('red','black','white','grey'))//false
 //console.log(handle8Colors('red','black','purple','yellow'))// true
+function codeBreakerFour(color1, color2,color3,color4) {
+    if (color1 === fourColorsToGuess[0] && color2 === fourColorsToGuess[1] && color3 === fourColorsToGuess[2] && color4 === fourColorsToGuess[3]){
+        return true
+    }
+    return false
+}
+console.log(codeBreakerFour('red','black','white','grey'))//false
+console.log(codeBreakerFour('red','black','purple','yellow'))// false
+console.log(codeBreakerFour('red','pink','green','black'))//true
