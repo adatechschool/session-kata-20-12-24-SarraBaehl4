@@ -7,8 +7,16 @@ const acceptedColors = ["red", "pink", "green", "black"];
 
 //fonction pour s'assurer que les 4 couleurs sont respectées ou non:
 function handleacceptedColors(color1, color2) {
+  if (color1 == undefined && color2 == undefined){
+    return false
+  }
+  if (typeof color1 !== 'string' && typeof color2 !== 'string'){
+    return false
+  }
   return acceptedColors.includes(color1) && acceptedColors.includes(color2);
 }
+//console.log(handleacceptedColors()); //false
+//console.log(handleacceptedColors(1,2)); //false
 // console.log(handleacceptedColors('blue','red'));// false
 // console.log(handleacceptedColors('pink','black'))// true
 
