@@ -14,21 +14,16 @@ function handleacceptedColors(color1, color2) {
 
 //Une fonction qui retourne true ou false si la bonne combinaison est trouvée ou non:
 function codeBreaker(color1, color2) {
-  let color1IsValide = false;
-  let color2IsValide = false;
-  for (let i = 0; i < colorsToGuess.length; i++) {
-    if (color1 === colorsToGuess[i]) {
-      color1IsValide = true;
+    if (color1 === colorsToGuess[0] && color2 === colorsToGuess[1]){
+        return true
     }
-    if (color2 === colorsToGuess[i]) {
-      color2IsValide = true;
-    }
-  }
-  return color1IsValide && color2IsValide;
+    return false
 }
 // console.log(codeBreaker("red", "pink")); // false
 // console.log(codeBreaker("black", "blue")); // false
-// console.log(codeBreaker('red','black')); //true
+//console.log(codeBreaker('red','black')); //true
+//console.log(codeBreaker('red','red')); //false
+
 
 //Une fonction qui gère la partie (continuer tant que/fin si gagné)
 function startGame(color1, color2) {
@@ -66,5 +61,5 @@ function handle8Colors(color1, color2, color3, color4) {
     acceptedEightColors.includes(color4)
   );
 }
-console.log(handle8Colors('red','black','white','grey'))//false
-console.log(handle8Colors('red','black','purple','yellow'))// true
+//console.log(handle8Colors('red','black','white','grey'))//false
+//console.log(handle8Colors('red','black','purple','yellow'))// true
